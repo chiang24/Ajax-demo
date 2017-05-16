@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+ <html lang="zh-Hans"> 
+<head> 
+<meta charset="UTF-8">
+<style>
+*{
+margin:0;
+padding:0;
+}
+ol{list-style:none }
+#container img{width:200px;}
+#container {display:flex;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto;}
+#btn{width:100px;height:30px;line-height:30px;}
+</style>
+</head>
+<body>
+<ol id="container"></ol>
+<button id="btn">加载</button>
+<script>
+	var page = 1
+	btn.onclick = function(){
+	var req = new XMLHttpRequest()
+	req.open('GET','/page'+page+'.json')
+	// req.setRequestHeader('Req-author','maxchiang')
+        req.onload = function(){
+	page += 1
+	let object = JSON.parse(req.responseText)
+        let hasNextPage = object.hasNextPage
+	if(!hasNextPage){
+	btn.disabled = true
+	}
+	let array = object.items
+        array.forEach(function (item,index){
+	   let li = document.createElement('li')
+	   let img = document.createElement('img')
+	   li.appendChild(img)
+	   img.src = item.url
+           container.appendChild(li)
+	 })
+	}
+	req.send()
+	}	
+</script>
+</body>
+</html>
+
