@@ -20,7 +20,7 @@ ol{list-style:none }
 	var page = 1
 	btn.onclick = function(){
 	var req = new XMLHttpRequest()
-	req.open('GET',`https://chiang24.github.io/Ajax-demo/index.html/page${page}.json`)
+	req.open('GET',`https://chiang24.github.io/Ajax-demo/page${page}.json`)
 	// req.setRequestHeader('Req-author','maxchiang')
         req.onload = function(){
 	page += 1
