@@ -11,7 +11,6 @@ var server = http.createServer(function(request, response){
   var path = temp.pathname
   var query = temp.query
   var method = request.method  
-//从这里开始看，上面不要看
 
  if(path === '/'){
      var string = fs.readFileSync('./index.html')
@@ -50,8 +49,7 @@ var server = http.createServer(function(request, response){
      response.setHeader('Content-type','text/html;charset=utf-8')
      response.end('找不到对应的路径，你需要自行修改 index.js')    	
 	}
-  // 代码结束，下面不要看
 })
 
-server.listen(port)
-console.log('监听 6360 成功')
+//server.listen(port)
+//console.log('监听 6360 成功')
