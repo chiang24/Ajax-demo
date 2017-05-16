@@ -49,7 +49,10 @@ var server = http.createServer(function(request, response){
      response.setHeader('Content-type','text/html;charset=utf-8')
      response.end('找不到对应的路径，你需要自行修改 index.js')    	
 	}
+    console.log(method + ' ' + request.url)
 })
 
+server.listen(port)
+console.log('监听 ' + port + ' 成功，请用在空中转体720度然后用电饭煲打开 http://localhost:' + port)
 //server.listen(port)
 //console.log('监听 6360 成功')
